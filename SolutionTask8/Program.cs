@@ -11,7 +11,7 @@ if (inputA !=null)
 
      while (inputNumberOne > numberB)
      {
-        lineOutput = lineOutput + numberB +", ";
+        lineOutput = lineOutput + numberB +",";
         numberB = numberB + 2;
      }
      Console.WriteLine(lineOutput);
