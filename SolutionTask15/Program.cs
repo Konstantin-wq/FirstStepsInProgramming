@@ -5,6 +5,8 @@ void searchThirdNumber1()
 {
 Console.WriteLine("Введите Ваше число:");
 string? inputNumber = Console.ReadLine();
+if (inputNumber != null)
+{
 char[] numbers = inputNumber.ToCharArray();
 if (numbers.Length >=3)
 {
@@ -13,6 +15,7 @@ if (numbers.Length >=3)
 else
 {
     Console.WriteLine("Третьей цифры в числе нет!");
+}
 }
 }
 
