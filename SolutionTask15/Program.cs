@@ -3,6 +3,7 @@ Console.Clear();
 
 void searchThirdNumber1()
 {
+Console.WriteLine("Первый вариант решения задачи : ");
 Console.WriteLine("Введите Ваше число:");
 string? inputNumber = Console.ReadLine();
 if (inputNumber != null)
@@ -10,7 +11,7 @@ if (inputNumber != null)
 char[] numbers = inputNumber.ToCharArray();
 if (numbers.Length >=3)
 {
-    Console.WriteLine(numbers[2]);
+    Console.WriteLine("Третье число в введенной цифре это " + numbers[2]);
 }
 else
 {
@@ -24,7 +25,7 @@ else
 
 void searchThirdNumber2()
 {
-
+Console.WriteLine("Второй вариант решения задачи : ");
 Console.WriteLine("Введите число: ");
 string? inputNumber = Console.ReadLine();
 if (inputNumber != null)
