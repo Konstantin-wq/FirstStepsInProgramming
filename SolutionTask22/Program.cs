@@ -33,7 +33,7 @@ void readDataOfPoint()
 
 }
 
-//Вычисляет расстояние между точками
+//Вычисляем расстояние между точками
 void calculateLengthAB()
 {
 lengthAB = Math.Sqrt(Math.Pow((coordXPointA - coordXPointB), 2) + Math.Pow((coordYPointA - coordYPointB), 2) + Math.Pow((coordZPointA - coordZPointB),2));
