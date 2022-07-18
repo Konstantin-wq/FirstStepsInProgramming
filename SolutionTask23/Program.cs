@@ -1,35 +1,102 @@
 ﻿//Программа, которая принимает на вход число N и выдает таблицу кубов чисел от 1 до N
 
-Console.Clear();
-Console.WriteLine("Введите число: ");
-string? inputLineN = Console.ReadLine();
+// Console.Clear();
+// Console.WriteLine("Введите число: ");
+// string? inputLineN = Console.ReadLine();
 
-//Метод возведения в степень "3" числа N
-void degreeN()
-{
-if (inputLineN != null)
-{
-    int numberN = int.Parse(inputLineN);
+// //Метод возведения в степень "3" числа N
+// void degreeN()
+// {
+// if (inputLineN != null)
+// {
+//     int numberN = int.Parse(inputLineN);
 
-    string lineN =  "";
-    string lineNN = string.Empty;
-    int s = 1;
+//     string lineN =  "";
+//     string lineNN = string.Empty;
+//     int s = 1;
 
-    while (s <= numberN)
-    {
-        lineN = lineN + s + " ";
-        lineNN = lineNN +(s*s*s).ToString() + " ";
-        s++;
+//     while (s <= numberN)
+//     {
+//         lineN = lineN + s + " ";
+//         lineNN = lineNN +(s*s*s).ToString() + " ";
+//         s++;
     
 
-    }       
-    Console.WriteLine(lineN);
-    Console.WriteLine(lineNN);
+//     }       
+//     Console.WriteLine(lineN);
+//     Console.WriteLine(lineNN);
  
 
+// }
+// }
+
+
+// degreeN();
+
+
+
+// Объявляем метод createTableString, который формирует из элементов массива строки для таблицы
+// исходя из количества символов в максимальном числе массива
+string createTableString(double[] array, int NumberLength)
+{
+
+string lineOutput = "";
+
+foreach (var number in array)
+{
+    int spacesCount = NumberLength - number.ToString("0").Length;
+    var spaces = new string(' ', spacesCount);
+    lineOutput = lineOutput + "|" + spaces + " " + (number.ToString("0"));
 }
+
+return lineOutput + "|";
+
 }
 
+// Считываем данные с консоли
+string? inputLine = Console.ReadLine();
 
-degreeN();
+if (inputLine != null)
+{
+try
+{
+//Парсим число
+int inputNumber = int.Parse(inputLine);
+// Инициализируем переменные
+int start = 1;
+double[] numberArray = new double[inputNumber];
+double[] cubeNumberArray = new double[inputNumber];
 
+    // В цикле перебираем все все числа от 1 до N
+    while (start <= inputNumber)
+    {
+        // Возводим число в куб и сохраняем в массив
+        cubeNumberArray[start-1] = Math.Pow(start, 3);
+        numberArray[start-1] = start;
+        start++;
+    }
+
+    // Считаем количество символов в максимальном числе массива
+    int maxNumberLength = (cubeNumberArray.Max() + 1).ToString("0").Length;
+
+    // Вызываем метод createTableString
+    string lineOneOutput = createTableString(numberArray, maxNumberLength);
+    string lineTwoOutput = createTableString(cubeNumberArray, maxNumberLength);
+
+    // Формируем линию между строками
+    var tableLine = new string('-', lineOneOutput.Length);
+
+    // Выводим таблицу
+    Console.WriteLine(tableLine);
+    Console.WriteLine(lineOneOutput);
+    Console.WriteLine(tableLine);
+    Console.WriteLine(lineTwoOutput);
+    Console.WriteLine(tableLine);
+}
+catch (Exception e)
+{
+    // Выводим сообщение об ошибке
+    Console.WriteLine($"Что-то здесь не так: {e}");
+}
+
+}
