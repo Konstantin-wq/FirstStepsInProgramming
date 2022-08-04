@@ -1,5 +1,10 @@
-﻿//Программа, которая принимает на вход число и выдает сумму цифр в числе
-//Сделать оценку времени алгоритма через вещественные числа и строки
+﻿/*-----------------------------------------------------------------------
+Программа, которая принимает на вход число и выдает сумму цифр в числе
+Сделать оценку времени алгоритма через вещественные числа и строки
+-------------------------------------------------------------------------
+*/
+
+//Вводим число с консоли
 
 Console.WriteLine("Введите ваше число: ");
 string? inputNumber = Console.ReadLine(); 
@@ -8,6 +13,8 @@ if (inputNumber != null)
 {
     DateTime timePointInt = DateTime.Now;
     DateTime timePointChar = DateTime.Now;
+
+//Метод нахождения суммы цифр через int
 void MethodInt()
 {    
     int a = int.Parse(inputNumber);
@@ -20,6 +27,7 @@ void MethodInt()
     Console.WriteLine(b);
 }
 
+//Метод нахождения суммы цифр с использованием char
 void MethodChar()
 {
     char[] value = inputNumber.ToCharArray();
@@ -34,6 +42,7 @@ void MethodChar()
     Console.WriteLine(sum);
 }
 
+//Расчет времени работы алгоритмов
 timePointInt = DateTime.Now;
 MethodInt();
 Console.WriteLine(DateTime.Now - timePointInt);
@@ -49,11 +58,15 @@ void Comparison()
 if (timePointInt>timePointChar)
 {
     
-      Console.Write("Время работы программы через строки  медленнее чем через вещественные числа");
+      Console.Write("Время работы программы через строки ,быстрее чем через вещественные числа");
+}
+if (timePointInt<timePointChar)
+{
+    Console.WriteLine("Время работы программы через строки, медленнее чем через вещественные числа");
 }
 else
 {
-    Console.WriteLine("Время работы программы через строки быстрее чем через вещественные числа ");
+    Console.WriteLine("Время работы программы одинаково ");
 }    
 }
 
