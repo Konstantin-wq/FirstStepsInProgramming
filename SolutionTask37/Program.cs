@@ -53,17 +53,16 @@ void PrintIntArray(int[] inputArray)
 //Сортируем массив
 int[] SortedArray(int[] inputArray)
 {
-    //int[] resultArray = new int[inputArray.Length];
     int temp = 0;
     for (int i = 0; i < inputArray.Length; i++)
     {
         for (int j = 0; j < inputArray.Length - i - 1; j++)
         {
-            if (inputArray[j] > inputArray[j+1])
+            if (inputArray[j] > inputArray[j + 1])
             {
                 temp = inputArray[j];
-                inputArray[j] = inputArray[j+1];
-                inputArray[j+1] = temp;
+                inputArray[j] = inputArray[j + 1];
+                inputArray[j + 1] = temp;
             }
         }
     }
