@@ -43,6 +43,7 @@ void PrintTwoDimArray(int[,] inputArray)
 
 }
 
+//Метод перемножения матриц
 int[,] MultiplicationOfArray(int[,] inputArray1,  int[,] inputArray2)
 {
     int[,] outPutArray = new int[inputArray1.GetLength(0),inputArray1.GetLength(1)];
